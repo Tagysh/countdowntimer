@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Countdown Timer</title>
+   
+    <style>
+        body {
+            text-align: center;
+            background: #05f7e3;
+            font-family: sans-serif;
+            font-weight: 100;
+        }
+ 
+        h1 {
+            color: #fff;
+            font-weight: 100;
+            font-size: 40px;
+            margin: 40px 0px 20px;
+        }
+ 
+        #clockdiv {
+            font-family: sans-serif;
+            color: #fff;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 50px;
+        }
+ 
+        #clockdiv > div {
+            padding: 10px;
+            border-radius: 3px;
+            background: #2af5e4;
+            display: inline-block;
+        }
+ 
+        #clockdiv div > span {
+            padding: 15px;
+            border-radius: 3px;
+            background: #777d7c;
+            display: inline-block;
+        }
+ 
+        .smalltext {
+            padding-top: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <h1>ՆՈՐԱՑՎԱԾ</h1>
+    <div id="clockdiv">
+        <div>
+            <span class="days"></span>
+            <div class="smalltext">ՕՐ</div>
+        </div>
+        <div>
+            <span class="hours"></span>
+            <div class="smalltext">ԺԱՄ</div>
+        </div>
+        <div>
+            <span class="minutes"></span>
+            <div class="smalltext">ՐՈՊԵ</div>
+        </div>
+        <div>
+            <span class="seconds"></span>
+            <div class="smalltext">ՎԱՅՐԿՅԱՆ</div>
+        </div>
+    </div>
+ 
+    <script>
+        function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+ 
+        function initializeClock(id, endtime) {
+            var clock = document.getElementById(id);
+            var daysSpan = clock.querySelector('.days');
+            var hoursSpan = clock.querySelector('.hours');
+            var minutesSpan = clock.querySelector('.minutes');
+            var secondsSpan = clock.querySelector('.seconds');
+ 
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
+ 
+                daysSpan.innerHTML = t.days;
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+ 
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }
+ 
+            updateClock(); // Run the function immediately set the initial time
+            var timeinterval = setInterval(updateClock, 1000);
+        }
+ 
+        // Set the deadline for the countdown (here, it's set to 1 day from now)
+        var deadline = new Date(Date.parse(new Date()) + 1 * 24 * 60 * 60 * 1000);
+        initializeClock('clockdiv', deadline);
+    </script>
+</body>
+</html>
+ 
+body{
+    text-align: center;
+    background: #05f7e3;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+ 
+h1{
+  color: #fff;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 40px 0px 20px;
+}
+ 
+#clockdiv{
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 50px;
+}
+ 
+#clockdiv > div{
+    padding: 10px;
+    border-radius: 3px;
+    background: #2af5e4;
+display: inline-block;
+}
+ 
+#clockdiv div > span{
+    padding: 15px;
+    border-radius: 3px;
+    background: #777d7c;
+    display: inline-block;
+}
+ 
+.smalltext{
+    padding-top: 15px;
+    font-size: 16px;
+}
+ 
+function getTimeRemaining(endtime) {
+
+  var t = Date.parse(endtime) - Date.parse(new Date());
+
+  var seconds = Math.floor((t / 1000) % 60);
+
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+
+  return {
+
+    'total': t,
+
+    'days': days,
+
+    'hours': hours,
+
+    'minutes': minutes,
+
+    'seconds': seconds
+
+  };
+
+}
+ 
+function initializeClock(id, endtime) {
+
+  var clock = document.getElementById(id);
+
+  var daysSpan = clock.querySelector('.days');
+
+  var hoursSpan = clock.querySelector('.hours');
+
+  var minutesSpan = clock.querySelector('.minutes');
+
+  var secondsSpan = clock.querySelector('.seconds');
+ 
+  function updateClock() {
+
+    var t = getTimeRemaining(endtime);
+ 
+    daysSpan.innerHTML = t.days;
+
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+ 
+    if (t.total <= 0) {
+
+      clearInterval(timeinterval);
+
+    }
+
+  }
+ 
+  updateClock();
+
+  var timeinterval = setInterval(updateClock, 1000);
+
+}
+ 
+var deadline = new Date(Date.parse(new Date()) + 1 * 24 * 60 * 60 * 1000);
+
+initializeClock('clockdiv', deadline);
+ 
