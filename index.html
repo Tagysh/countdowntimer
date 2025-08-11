@@ -6,7 +6,7 @@
     <style>
         body {
             text-align: center;
-            background: url('https://p.turbosquid.com/ts-thumb/T2/JqLEij/uG/iqo…1b56ff4cc41bafa225ebba1ed685/iqosilumaiprime1.jpg') no-repeat center center fixed;
+            background: url('https://otokomaeken.com/wp-content/uploads/2024/03/56-750x396.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: sans-serif;
             font-weight: 100;
@@ -101,7 +101,11 @@
 
                 daysSpan.innerHTML = t.days;
                 hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2            updateClock();
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+            }
+
+            updateClock();
             var timeinterval = setInterval(updateClock, 1000);
         }
 
