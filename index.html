@@ -10,57 +10,76 @@
             background-size: cover;
             font-family: sans-serif;
             font-weight: 100;
+            margin: 0;
+            padding: 0;
         }
+
+        .container {
+            width: 500px;
+            height: 350px;
+            margin: 50px auto;
+            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent dark overlay */
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
         h1 {
-            color: #fff;
-            font-weight: 100;
-            font-size: 40px;
-            margin: 40px 0px 20px;
+            color: #f0f0f0;
+            font-weight: 600;
+            font-size: 32px;
+            margin-bottom: 30px;
         }
+
         #clockdiv {
-            font-family: sans-serif;
-            color: #fff;
-            display: inline-block;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-around;
             font-weight: 100;
             text-align: center;
-            font-size: 50px;
+            font-size: 30px;
         }
+
         #clockdiv > div {
             padding: 10px;
-            border-radius: 3px;
-            background: #463d69;
-            display: inline-block;
+            border-radius: 8px;
+            background: #1e88e5; /* vibrant blue */
+            width: 100px;
         }
+
         #clockdiv div > span {
-            padding: 15px;
-            border-radius: 3px;
-            background: #493f72;
-            display: inline-block;
+            display: block;
+            font-size: 28px;
+            font-weight: bold;
         }
+
         .smalltext {
-            padding-top: 15px;
-            font-size: 16px;
+            padding-top: 10px;
+            font-size: 14px;
+            color: #e0e0e0;
         }
     </style>
 </head>
 <body>
-    <h1>ՆՈՐԱՑՎԱԾ</h1>
-    <div id="clockdiv">
-        <div>
-            <span class="days">00</span>
-            <div class="smalltext">ՕՐ</div>
-        </div>
-        <div>
-            <span class="hours">00</span>
-            <div class="smalltext">ԺԱՄ</div>
-        </div>
-        <div>
-            <span class="minutes">00</span>
-            <div class="smalltext">ՐՈՊԵ</div>
-        </div>
-        <div>
-            <span class="seconds">00</span>
-            <div class="smalltext">ՎԱՅՐԿՅԱՆ</div>
+    <div class="container">
+        <h1>ՆՈՐԱՑՎԱԾ</h1>
+        <div id="clockdiv">
+            <div>
+                <span class="days">00</span>
+                <div class="smalltext">ՕՐ</div>
+            </div>
+            <div>
+                <span class="hours">00</span>
+                <div class="smalltext">ԺԱՄ</div>
+            </div>
+            <div>
+                <span class="minutes">00</span>
+                <div class="smalltext">ՐՈՊԵ</div>
+            </div>
+            <div>
+                <span class="seconds">00</span>
+                <div class="smalltext">ՎԱՅՐԿՅԱՆ</div>
+            </div>
         </div>
     </div>
 
@@ -75,8 +94,7 @@
                 'total': t,
                 'days': days,
                 'hours': hours,
-                'minutes': minutes,
-                'seconds': seconds
+                'minutes                'seconds': seconds
             };
         }
 
